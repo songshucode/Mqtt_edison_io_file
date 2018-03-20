@@ -3,6 +3,8 @@
 #      function:   using mqtt technology
 #                  send command and file to the device controled
 #                  on the device part
+#       version:    Python: 2.7.3
+#                   paho-mqtt: 1.1
 
 import paho.mqtt.client as mqtt
 import json
