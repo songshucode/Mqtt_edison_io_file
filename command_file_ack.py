@@ -26,14 +26,14 @@ def deal_cmd(client, cmd):
         if index >= '0' and index <= '9':
             led[int(index)].write(1)
         else:
-            client.publish("ack_message", json.dumps({"user": NAME, "say": Error_str}))
+            client.publish("ack_message", json.dumps({"user": NAME, "say": Error_str}), qos=0)
         print("led " + index + " is on")
     if cmd[0:-2] == "turn off led":
         index = cmd[-1]
         if index >= '0' and index <= '9':
             led[int(index)].write(0)
         else:
-            client.publish("ack_message", json.dumps({"user": NAME, "say": Error_str}))
+            client.publish("ack_message", json.dumps({"user": NAME, "say": Error_str}), qos=0)
         print("led " + index + " is off")
     client.publish('ack_message', json.dumps({'user':NAME, 'message':'I have got the command!'}), qos=0)
 
